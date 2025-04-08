@@ -1,0 +1,9 @@
+ipython     #terminal
+ipdb        #debugger
+sdb         #debugger remoto
+pip-tools
+pytest
+pytest-order
+httpx
+black
+flake8
