@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulários para API</title>
+</head>
+<body>
+
+  <h2>🔍 Buscar item (GET)</h2>
+  <form action="http://127.0.0.1:9000/book/0" method="get">
+    <button type="submit">Buscar Item com ID 1</button>
+  </form>
+
+  <hr>
+
+  <h2>➕ Criar item (POST)</h2>
+  <form action="http://127.0.0.1:9000/book/" method="post">
+    <label>Título: <input name="title" required></label><br>
+    <label>Autor: <input name="autor" required></label><br>
+    <label>Data de publicação: <input name="dtpubli" required></label><br>
+    <label>Gênero: <input name="genero" required></label><br>
+    <label>Descrição: <input name="desc" required></label><br>
+    <label>Imagems: <input name="images" required> </label><br>
+    <button type="submit">Criar</button>
+  </form>
+
+  <hr>
+
+  <h2>✏️ Atualizar item (PUT via JS)</h2>
+  <form id="updateForm">
+    <label>ID do item: <input id="put-id" required></label><br>
+    <label>Novo nome: <input id="put-name"></label><br>
+    <label>Nova descrição: <input id="put-desc"></label><br>
+    <button type="submit">Atualizar</button>
+  </form>
+
+  <hr>
+
+  <h2>🗑️ Deletar item (DELETE via JS)</h2>
+  <form id="deleteForm">
+    <label>ID do item: <input id="delete-id" required></label><br>
+    <button type="submit">Deletar</button>
+  </form>
+
+  <script>
+    // PUT (update)
+    document.getElementById("updateForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const id = document.getElementById("put-id").value;
+      const name = document.getElementById("put-name").value;
+      const description = document.getElementById("put-desc").value;
+
+      const response = await fetch(`http://127.0.0.1:8000/items/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, description })
+      });
+
+      const data = await response.json();
+      alert("Atualizado: " + JSON.stringify(data));
+    });
+
+    // DELETE
+    document.getElementById("deleteForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const id = document.getElementById("delete-id").value;
+
+      const response = await fetch(`http://127.0.0.1:8000/items/${id}`, {
+        method: "DELETE"
+      });
+
+      if (response.ok) {
+        alert("Item deletado com sucesso!");
+      } else {
+        alert("Erro ao deletar item.");
+      }
+    });
+  </script>
+
+</body>
+</html>

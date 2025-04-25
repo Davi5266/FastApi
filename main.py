@@ -62,3 +62,11 @@ async def import_file(filepath: str):
 # @app.get()    # Read
 # @app.put()    # Update  
 # @app.delete() # Delete
+
+@app.get("/items/{item_id}")
+async def get_item(item_id: int):
+    return {"item_id"}
+
+@app.get("/search/")
+async def search_item(query:str, limit: int = 10):
+    return {"query": query, "limit":limit}
