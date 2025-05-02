@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 
 from sqlalchemy.orm import Session
 from app import models, schemas, database
@@ -36,3 +36,20 @@ async def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
 @router.get("/create", response_model=list[schemas.UserOut])
 async def list_user(db: Session = Depends(get_db)):
     return db.query(models.User).all()
+
+# users
+@router.post("/users/", response_model=User)
+def create_user(user_data: CreateUser, db: Session = Depends(get_db)):
+    return crud.create_user(db,user_data)
+
+@router.get("/users/{user_id}", response_model=User)
+async def read_user(user_id: int, db: Session = Depends(get_db)):
+    return crud.get_user(db, user_id)
+
+@router.put("/users/{user_id}",response_model=User)
+def update_user(user_id:int,name:str,dt_nasc:str,email:str,tel:str,db: Session = Depends(get_db)):
+    return crud.update_user(db,user_id, name, dt_nasc,email,tel)
+
+@router.delete("/users/{user_id}",response_model=User)
+async def delete_user(user_id:int,db: Session = Depends(get_db)):
+    return crud.delete_user(db,user_id)

@@ -1,9 +1,12 @@
-from fastapi import Depends
 from routers import users
-from fastapi import FastAPI
-from app import models, database
+from fastapi import FastAPI, Depends
+from database import engine, SessionLocal
+from sqlalchemy.orm import Session
+import models, crud
+from schemas import CreateUser, User, CreateProduct, Product
 
-models.Base.metadata.create_all(bind=database.engine)
+# Criando tabelas definidas em models
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
