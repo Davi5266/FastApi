@@ -20,6 +20,7 @@ O objetivo da semana 2 é a configuração de banco de dados utilizando [SQLAlch
 ```
 ### DataBase
 >[sqlite3](https://docs.sqlalchemy.org/en/20/dialects/sqlite.html)
+>
 >[fastapi_sqlite3](https://fastapi.tiangolo.com/tutorial/sql-databases/#create-the-tables)
 
 ```python
