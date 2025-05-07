@@ -100,7 +100,7 @@ from typing import Union
 ```
 
 
-# Modelo base para a criação de usuário (POST/PUT)
+###### Modelo base para a criação de usuário (POST/PUT)
 ```python
 class CreateUser(BaseModel):
     name: str
@@ -109,7 +109,7 @@ class CreateUser(BaseModel):
     tel: str
 ```
 
-# Schema para resposta (GET)
+###### Schema para resposta (GET)
 ```python
 class User(BaseModel):
     id: int
