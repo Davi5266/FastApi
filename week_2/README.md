@@ -9,7 +9,36 @@
 
 O objetivo da semana 2 é a configuração de banco de dados utilizando [SQLAlchemy](https://www.sqlalchemy.org/), esse framework permite criar, atualizar e deletar informações de um banco de dados de modo simples e eficiente.
 
-- ### Crud
+```text
+.
+├── database.py
+├── crud.py
+├── schemas.py
+├── models.py
+├── data.db     # Banco de dados SQLite3
+└── main.py
+```
+### DataBase
+>[sqlite3](https://docs.sqlalchemy.org/en/20/dialects/sqlite.html)
+>[fastapi_sqlite3](https://fastapi.tiangolo.com/tutorial/sql-databases/#create-the-tables)
+
+```python
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+DATABASE_URL = "sqlite:///./data.db"
+
+engine = create_engine(DATABASE_URL, connect_args={"check_same_thread":False})
+
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+Base = declarative_base()
+```
+
+### Models
+
+### Crud
 CRUD é um acrônimo que representa as quatro operações básicas de persistência em bancos de dados: Create (Criar), Read (Ler), Update (Atualizar) e Delete (Excluir).
 
 ###### Registra Usuário no banco de dados
@@ -62,3 +91,30 @@ def delete_user(db:Session, user_id: int):
 
 ```
 
+### Schemas
+São coleções de objetos dentro de um determinado banco de dados, que organizam vários aspectos e são importantes para segmentação da segurança, facilitando a administração dos objetos e dos dados.
+
+```python
+from pydantic import BaseModel
+from typing import Union
+```
+
+
+# Modelo base para a criação de usuário (POST/PUT)
+```python
+class CreateUser(BaseModel):
+    name: str
+    dt_nasc: int
+    email: str
+    tel: str
+```
+
+# Schema para resposta (GET)
+```python
+class User(BaseModel):
+    id: int
+    name: str
+    dt_nasc: str
+    email: str
+    tel: str
+```
