@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 from typing import Union
 
+#MODELOS DE DADOS USADO EM REQUISIÇÕES
+
 # Modelo base para a criação de usuário (POST/PUT)
 class CreateUser(BaseModel):
     name: str
@@ -17,6 +19,7 @@ class User(BaseModel):
     email: str
     tel: str
 
+# MODELO DE PRODUTOS
 class CreateProduct(BaseModel):
     name: str
     type: str
@@ -35,9 +38,13 @@ class Token(BaseModel):
     access_token: str
     token_type: str
 
+# MODELO DE LOGIN
 class LoginData(BaseModel):
     email: str
     password: str
 
 class Config:
     orm_mode = True
+
+class Esp32(BaseModel):
+    user: str
