@@ -61,7 +61,7 @@ async def delete_user(user_id:int,db: Session = Depends(get_db)):
 #     access_token = create_access_token(data={"sub":user.email})
 #     return {"access_token": access_token, "token_type":"bearer"}
 
-# para que o modelo de autenticação funcione é utilizado o OAuth2PasswordRequestForm, ele espera por username(email) e password como formulário. Nesse caso o username é um email=
+# para que o modelo de autenticação funcione é utilizado o OAuth2PasswordRequestForm, ele espera por username(email) e password como formulário. Nesse caso o username é um email
 async def login_user(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     user = crud.get_user_by_email(db, form_data.username)
     if not user or not verify_password(form_data.password, user.password):

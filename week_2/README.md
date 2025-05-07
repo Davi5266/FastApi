@@ -20,6 +20,7 @@ O objetivo da semana 2 é a configuração de banco de dados utilizando [SQLAlch
 ```
 ### DataBase
 >[sqlite3](https://docs.sqlalchemy.org/en/20/dialects/sqlite.html)
+>
 >[fastapi_sqlite3](https://fastapi.tiangolo.com/tutorial/sql-databases/#create-the-tables)
 
 ```python
@@ -37,6 +38,35 @@ Base = declarative_base()
 ```
 
 ### Models
+
+Modelo de tabela para o banco de dados, definindo colunas e seus tipos
+
+```python
+from sqlalchemy import Column, Integer, String
+from database import Base
+from typing import Union
+
+# Definindo tabela users
+class User(Base):
+    __tablename__ = "users"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, index=True)
+    dt_nasc = Column(String, index=True)
+    email = Column(String, unique=True, index=True)
+    tel = Column(String,index=True)
+
+# Definindo tabela product
+class Product(Base):
+    __tablename__="product"
+
+    id = Column(Integer, primary_key=True,index=True)
+    name = Column(String, index=True)
+    type = Column(String, index=True)
+    value = Column(Integer, index=True)
+    desc = Column(String, index=True, insert_default=True)
+```
+
 
 ### Crud
 CRUD é um acrônimo que representa as quatro operações básicas de persistência em bancos de dados: Create (Criar), Read (Ler), Update (Atualizar) e Delete (Excluir).
