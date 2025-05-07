@@ -9,4 +9,6 @@ class User(BaseModel):
 @app.post("/")
 async def test(user: User):
     print(user.user)
-    return
+    dados = "megaman"
+    print(dados)
+    return {"mensage": dados}
