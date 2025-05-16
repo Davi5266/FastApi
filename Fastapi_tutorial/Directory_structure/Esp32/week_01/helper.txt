@@ -1,0 +1,4 @@
+https://github.com/amcewen/HttpClient
+https://github.com/arduino-libraries/ArduinoHttpClient/tree/master?tab=readme-ov-file
+https://github.com/arduino-libraries/ArduinoHttpClient
+

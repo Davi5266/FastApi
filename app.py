@@ -4,11 +4,16 @@ from pydantic import BaseModel
 app = FastAPI()
 
 class User(BaseModel):
-    user: str
+    # user: str
+    temperature: float
+
+class Esp32(BaseModel):
+    sla: str
 
 @app.post("/")
 async def test(user: User):
-    print(user.user)
+    # print(user.user)
+    print(user.temperature)
     dados = "megaman"
     print(dados)
-    return {"mensage": dados}
+    return {"message":"sucesso"}

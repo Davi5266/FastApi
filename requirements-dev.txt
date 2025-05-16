@@ -17,3 +17,5 @@ httpx
 pytest
 python-dotenv
 alembic
+sqlalchemy
+mysqlclient

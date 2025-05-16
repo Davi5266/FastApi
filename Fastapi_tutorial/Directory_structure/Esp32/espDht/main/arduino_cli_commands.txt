@@ -1,0 +1,68 @@
+  399  curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+  404  ./arduino-cli 
+  430  curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+  936  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+ 1115  curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
+ 1117  sudo mv bin/arduino-cli /usr/local/bin/
+ 1118  arduino-cli config init
+ 1119  arduino-cli core update-index
+ 1120  arduino-cli core install esp32:esp32
+ 1121  arduino-cli board list
+ 1123  arduino-cli compile --fqbn esp32:esp32:lilygo_t_display .
+ 1124  arduino-cli upload -p /dev/ttyACM0 -c baubrate=115200
+ 1125  arduino-cli monitor -p /dev/ttyACM0 -c baudrate=115200
+ 1126  arduino-cli compile --fqbn esp32:esp32:lilygo_t_display .
+ 1127  arduino-cli board list
+ 1129  arduino-cli upload -p /dev/ttyACM0 --fqbn esp32:esp32:lilygo_t_display .
+ 1130  arduino-cli monitor -p /dev/ttyACM0 -c baudrate=115200
+ 1147  history | grep arduino-cli
+ 1150  arduino-cli board list
+ 1160  arduino-cli list boards
+ 1161  arduino-cli board list
+ 1164  history | grep arduino-cli
+ 1165  arduino-cli board list
+ 1166  arduino-cli compile --fqbn arduino:avr:uno .
+ 1169  arduino-cli compile --fqbn arduino:avr:uno .
+ 1170  arduino-cli compile --fqbn arduino:avr:uno --output-dir ./build .
+ 1173  arduino-cli compile --fqbn arduino:avr:uno .
+ 1175  arduino-cli compile --fqbn arduino:avr:uno .
+ 1176  arduino-cli core install arduino:avr
+ 1177  arduino-cli core install arduino:
+ 1178  arduino-cli core install arduino:all
+ 1179  arduino-cli compile --fqbn arduino:avr:uno .
+ 1181  arduino-cli compile --fqbn arduino:avr:uno --output-dir ./build .
+ 1182  arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno .
+ 1184  arduino-cli board list
+ 1185  arduino-cli upload -p /dev/ttyACM0 --fqbn arduino:avr:uno .
+ 1187  arduino-cli monitor -p /dev/ttyACM0 -c baudrate=9600
+ 1189  arduino-cli lib download ESP8266
+ 1190  arduino-cli lib download ESP8266WiFi
+ 1191  arduino-cli lib download ESP8266WiFi.h
+ 1192  arduino-cli lib download HTTPClient
+ 1193  arduino-cli lib download HTTP
+ 1194  arduino-cli lib download HTTPServer
+ 1195  arduino-cli lib download arduinoJSON
+ 1196  arduino-cli lib install --git-url https://github.com/esp8266/Arduino/blob/master/libraries/ESP8266HTTPClient/src/ESP8266HTTPClient.h
+ 1198  arduino-cli lib install --git-url https://github.com/arduino-libraries/Arduino_ESP32_OTA.git
+ 1240  arduino-cli board list
+ 1241  arduino-cli monitor -p /dev/ttyACM0 -c baudrate=9600
+ 1276  arduino-cli lib install htb
+ 1277  arduino-cli lib install HTB
+ 1278  arduino-cli lib install DHT
+ 1279  arduino-cli lib install DHT.h
+ 1281  arduino-cli lib install --git-url https://github.com/adafruit/DHT-sensor-library.git
+ 1282  arduino-cli enable_unsafe_install true
+ 1284  arduino-cli -h
+ 1285  arduino-cli --enable_unsafe_install
+ 1286  arduino-cli --enable_unsafe_install true
+ 1287  arduino-cli lib enable_unsafe_install true
+ 1288  arduino-cli --config-file string
+ 1289  arduino-cli lib install  --config-file string
+ 1290  arduino-cli lib install enable_unsafe_install 
+ 1291  arduino-cli lib install enable_unsafe_install true
+ 1292  arduino-cli lib install "DHT sensor library"
+ 1293  arduino-cli config set library.enable_unsafe_install true
+ 1294  history | grep cli
+ 1311  history | grep cli
+ 1312  arduino-cli upload -p /dev/ttyACM0 -c baubrate=9600
+ 1313  history | grep cli > arduino_cli_commands.txt
