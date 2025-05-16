@@ -11,3 +11,8 @@ class Client(BaseModel):
 
     class Config:
         orm_mode = True
+
+#Token config
+class Token(BaseModel):
+    access_token: str
+    token_type: str

@@ -18,4 +18,4 @@ pytest
 python-dotenv
 alembic
 sqlalchemy
-mysqlclient
+#mysqlclient
