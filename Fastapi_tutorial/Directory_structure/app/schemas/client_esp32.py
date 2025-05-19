@@ -16,3 +16,17 @@ class Client(BaseModel):
 class Token(BaseModel):
     access_token: str
     token_type: str
+
+# Temperature
+class RegisterTemperature(BaseModel):
+    data_hora: str
+    humidade: float
+    temperature_C: float
+    temperature_F: float
+
+class Temperature_s(BaseModel):
+    id: int
+    data_hora: str
+    humidade: float
+    temperature_C: float
+    temperature_F: float
