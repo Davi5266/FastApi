@@ -2,8 +2,8 @@
 #include <HTTPClient.h>
 #include "DHT.h"
 
-const char* ssid = "Paulo";
-const char* password = "15151515";
+const char* ssid = "";
+const char* password = "";
 const char* serverName = "http://192.168.0.102:3000";
 
 #define DHTPIN 4
@@ -48,9 +48,14 @@ void loop() {
 
         http.begin(serverName);
         http.addHeader("Content-Type", "application/json");
+        /*
+        humidade
+        temperature_C
+        temperature_F
+        */
 
         // String jsonPayload = "{\"temperature\":\"%d\"}", hic;
-        String jsonPayload = "{\"temperature\":" + String(hic,2) + "}";
+        String jsonPayload = "{\"temperature\":" + String(hic,2) + ",\"temperature_C\":\"23\",\"temperature_F\":\"45\"}";
 
         int httpResponseCode = http.POST(jsonPayload);
 
