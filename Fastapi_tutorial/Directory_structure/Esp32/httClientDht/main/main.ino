@@ -4,7 +4,7 @@
 
 const char* ssid = "";
 const char* password = "";
-const char* serverName = "http://192.168.0.102:3000";
+const char* serverName = "http://192.168.0.105:3000/clientesp/temperature";
 
 #define DHTPIN 4
 #define DHTTYPE DHT22
@@ -52,10 +52,17 @@ void loop() {
         humidade
         temperature_C
         temperature_F
+
+	"data_hora": "string",
+	"humidade": 0,
+	"temperature_C": 0,
+	"temperature_F": 0
+
         */
 
         // String jsonPayload = "{\"temperature\":\"%d\"}", hic;
-        String jsonPayload = "{\"temperature\":" + String(hic,2) + ",\"temperature_C\":\"23\",\"temperature_F\":\"45\"}";
+        //String jsonPayload = "{\"temperature\":" + String(hic,2) + ",\"temperature_C\":\"23\",\"temperature_F\":\"45\"}";
+	String jsonPayload = "{\"humidade\":" + String(h,2) +",\"temperature_C\":" + String(hic,2) +",\"temperature_F\":" + String(hif,2) +"}";
 
         int httpResponseCode = http.POST(jsonPayload);
 
