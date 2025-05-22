@@ -19,14 +19,14 @@ class Token(BaseModel):
 
 # Temperature
 class RegisterTemperature(BaseModel):
-    data_hora: str
-    humidade: float
-    temperature_C: float
-    temperature_F: float
+    # data_hora: str | None | int
+    humidade: float | None | int
+    temperature_C: float | None | int
+    temperature_F: float | None | int
 
 class Temperature_s(BaseModel):
-    id: int
-    data_hora: str
-    humidade: float
-    temperature_C: float
-    temperature_F: float
+    id: int | None
+    data_hora: str | None
+    humidade: float | None
+    temperature_C: float | None
+    temperature_F: float | None
