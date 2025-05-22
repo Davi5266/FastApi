@@ -11,14 +11,6 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-# Abrindo e fechando sessões com o banco
-# def get_db():
-#     db = SessionLocal()
-#     try:
-#         yield db
-#     finally:
-#         db.close()
-
 # Definição de endpoints 
 
 # Rota de teste que retorna todos os usários do banco de dados

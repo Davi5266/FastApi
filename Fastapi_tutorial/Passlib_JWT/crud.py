@@ -33,7 +33,8 @@ def update_user(db: Session, user_id: int, name: str, dt_nasc: str, email: str, 
         user.dt_nasc = dt_nasc
         user.email = email
         user.tel = tel
-
+        db.commit()
+        db.refresh(user)
     return user
 
 # Deleta usuário do banco de dados
